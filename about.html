@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Nombabazane Electrical and Construction</title>
+    <meta name="description" content="Learn about Nombabazane Electrical - licensed, insured electricians serving East London. Local business built on trust, professionalism, and customer satisfaction.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+
+        .container {
+            max-width: 1400px; /* Match other pages */
+            margin: 0 auto;
+            padding: 0 30px; /* Match other pages */
+        }
+
+        /* Header - Enhanced Width */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0 20px; /* Added padding to header itself */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1400px; /* Match container width */
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #007bff;
+        }
+
+        .cta-phone {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-phone:hover {
+            background: #555;
+        }
+
+        /* Page Header with Background Image */
+        .page-header {
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), 
+                        url('https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') center/cover no-repeat;
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+            border: 2px solid #eee;
+        }
+
+        .about-image .placeholder {
+            width: 200px;
+            height: 200px;
+            background: #333;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        /* Why Choose Section */
+        .why-choose-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: #e9ecef;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .contact-details p {
+            color: #666;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            background: #333;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #22c55e;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: #333;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .map-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .map-section p {
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .map-placeholder {
+            background: #555;
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            padding: 15px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-float:hover {
+            background: #22c55e;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float span {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .whatsapp-float span {
+                display: inline;
+            }
+            
+            .whatsapp-float {
+                border-radius: 25px;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-content,
+        .feature-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Nombabazane Electrical</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+            </ul>
+            <a href="tel:0747690232" class="cta-phone">📞 074 769 0232</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>About Nombabazane Electrical</h1>
+                <p>Your trusted local electrical contractor. Licensed, insured, and committed to delivering safe, efficient, and long-lasting electrical solutions.</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Every Connection Matters</h2>
+                        <p>At Nombabazane Electrical and Construction, we believe every connection matters. With extensive experience in both residential and commercial electrical work, our mission is to deliver safe, efficient, and long-lasting solutions that you can depend on.</p>
+                        <p>We're a local business built on trust, professionalism, and customer satisfaction. Whether you need a quick repair, a full wiring installation, or a comprehensive safety inspection, you can count on us to get the job done right—first time, every time.</p>
+                        <p>Our team of licensed and insured electricians brings years of expertise to every project, ensuring that your electrical systems are not only functional but also meet the highest safety standards.</p>
+                    </div>
+                    <div class="about-image">
+                        <div class="placeholder">👨‍🔧</div>
+                        <p><strong>Professional & Experienced</strong><br>Licensed electrician serving East London</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Section -->
+        <section class="why-choose-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose Nombabazane Electrical?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Licensed & Insured</h3>
+                        <p>Fully qualified electricians with proper licensing and comprehensive insurance coverage for your peace of mind.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Response</h3>
+                        <p>Quick response times and reliable service when you need it most. Same-day service available for urgent repairs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Affordable Pricing</h3>
+                        <p>Transparent, competitive pricing with no hidden fees. You'll know the cost upfront before any work begins.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✅</div>
+                        <h3>100% Satisfaction Guarantee</h3>
+                        <p>We stand behind our work with a complete customer satisfaction guarantee. Your happiness is our priority.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏠</div>
+                        <h3>Local & Trusted</h3>
+                        <p>Proudly serving the East London community. We're your neighbors, committed to building lasting relationships.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>Quality Workmanship</h3>
+                        <p>Using only high-quality materials and proven techniques to ensure your electrical systems last for years to come.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Get in Touch Today</h2>
+                        <p style="margin-bottom: 2rem; color: #666;">We're here to help with all your electrical needs—big or small. Contact us today for fast, professional service.</p>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h3>Call Us</h3>
+                                <p><a href="tel:0747690232" style="color: #333; font-weight: bold;">074 769 0232</a></p>
+                                <p>24/7 Emergency Service Available</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h3>Location</h3>
+                                <p>Mdantsane, East London</p>
+                                <p>Serving all surrounding areas</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-details">
+                                <h3>Business Hours</h3>
+                                <p>Monday - Friday: 7:00 AM - 6:00 PM</p>
+                                <p>Saturday: 8:00 AM - 4:00 PM</p>
+                                <p>Sunday: Emergency calls only</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Request a Quote</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Needed</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service...</option>
+                                    <option value="house-rewiring">House Rewiring</option>
+                                    <option value="lighting">Lighting Installation</option>
+                                    <option value="repairs">Electrical Repairs</option>
+                                    <option value="new-installation">New Installation</option>
+                                    <option value="fuse-board">Fuse Board Upgrade</option>
+                                    <option value="commercial">Commercial Service</option>
+                                    <option value="inspection">Safety Inspection</option>
+                                    <option value="emergency">Emergency Service</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Description of Work Needed</label>
+                                <textarea id="message" name="message" placeholder="Please describe your electrical needs..."></textarea>
+                            </div>
+                            <button type="button" onclick="sendWhatsApp('contact-form')" class="btn btn-whatsapp">💬 Send via WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <h2>Our Service Area</h2>
+                <p>Proudly serving East London, Mdantsane, and surrounding areas</p>
+                <div class="map-placeholder">
+                    <div>
+                        <p>📍 Service Area Map</p>
+                        <p style="margin-top: 10px; opacity: 0.8;">East London • Mdantsane • Surrounding Areas</p>
+                        <p style="margin-top: 20px;">
+                            <a href="tel:0747690232" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 5px; display: inline-block;">
+                                Call for Service Area Confirmation
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" onclick="sendWhatsApp('general')" class="whatsapp-float">
+        💬 <span>Contact Us</span>
+    </a>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📞 074 769 0232</p>
+                    <p>📍 Mdantsane, East London</p>
+                    <p>🕒 24/7 Emergency Service</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <a href="services.html">House Rewiring</a>
+                    <a href="services.html">Lighting Installation</a>
+                    <a href="services.html">Electrical Repairs</a>
+                    <a href="services.html">Safety Inspections</a>
+                </div>
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Licensed and insured electrical contractor serving the East London area. Committed to quality, safety, and customer satisfaction.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nombabazane Electrical and Construction. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'white';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // WhatsApp integration function
+        function sendWhatsApp(serviceType) {
+            const phoneNumber = '27747690232'; // Replace with your WhatsApp number
+            let message = '';
+
+            if (serviceType === 'contact-form') {
+                // Get form data
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const service = document.getElementById('service').value;
+                const messageText = document.getElementById('message').value;
+                
+                // Validate required fields
+                if (!name || !phone) {
+                    alert('Please fill in your name and phone number.');
+                    return;
+                }
+                
+                // Create message
+                message = `Hi! I would like to request a quote for electrical work.\n\n`;
+                message += `Name: ${name}\n`;
+                message += `Phone: ${phone}\n`;
+                if (email) message += `Email: ${email}\n`;
+                if (service) {
+                    const serviceMap = {
+                        'house-rewiring': 'House Rewiring',
+                        'lighting': 'Lighting Installation',
+                        'repairs': 'Electrical Repairs',
+                        'new-installation': 'New Installation',
+                        'fuse-board': 'Fuse Board Upgrade',
+                        'commercial': 'Commercial Service',
+                        'inspection': 'Safety Inspection',
+                        'emergency': 'Emergency Service'
+                    };
+                    message += `Service Needed: ${serviceMap[service] || service}\n`;
+                }
+                if (messageText) message += `Details: ${messageText}\n`;
+                message += `\nPlease contact me to discuss this project.\n\nThank you!`;
+                
+                // Reset form after successful submission
+                document.getElementById('contactForm').reset();
+                alert('Thank you! Your message will be sent via WhatsApp.');
+            } else {
+                message = 'Hi! I\'m interested in your electrical services. Please provide information about:\n\n• Available services and pricing\n• Service area coverage\n• Scheduling and availability\n• Licensing and insurance details\n\nI\'m located in [Your Area]. Looking forward to hearing from you!';
+            }
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards and contact items
+        document.querySelectorAll('.feature-card, .contact-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.6s ease-out';
+            observer.observe(element);
+        });
+
+        // Phone number click tracking (for analytics)
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Phone number clicked:', this.href);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombabazane Electrical and Construction - Expert Electrical Solutions</title>
+    <meta name="description" content="Professional electrical services in East London. Licensed electricians for residential and commercial work. Fast response, affordable pricing.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+
+        .container {
+            max-width: 1400px; /* Increased from 1200px */
+            margin: 0 auto;
+            padding: 0 30px; /* Increased padding */
+        }
+
+        /* Header - Enhanced Width */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0 20px; /* Added padding to header itself */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1400px; /* Match container width */
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
+        }
+
+        .cta-phone {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-phone:hover {
+            background: #555;
+        }
+
+        /* Hero Section with Background Image */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), 
+                        url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') center/cover no-repeat;
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #25D366; /* WhatsApp Green */
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #333;
+        }
+
+        /* Services Preview */
+        .services-preview {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-btn:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%), 
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') center/cover no-repeat;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            padding: 15px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-float:hover {
+            background: #22c55e;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float span {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .whatsapp-float span {
+                display: inline;
+            }
+            
+            .whatsapp-float {
+                border-radius: 25px;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1,
+        .hero .tagline,
+        .hero-buttons {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero .tagline {
+            animation-delay: 0.2s;
+        }
+
+        .hero-buttons {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Nombabazane Electrical</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="tel:0747690232" class="cta-phone">📞 074 769 0232</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Nombabazane Electrical and Construction</h1>
+                    <p class="tagline">Expert Electrical Solutions for Your Home and Business</p>
+                    <div class="hero-buttons">
+                        <a href="#" onclick="sendWhatsApp('general')" class="btn btn-primary">💬 WhatsApp Us</a>
+                        <a href="tel:0747690232" class="btn btn-secondary">📞 Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Preview -->
+        <section class="services-preview">
+            <div class="container">
+                <h2 class="section-title">Our Expert Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>House Rewiring</h3>
+                        <p>Modernize and secure your home's electrical system with professional rewiring services.</p>
+                        <a href="#" onclick="sendWhatsApp('rewiring')" class="whatsapp-btn">💬 Get Quote via WhatsApp</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💡</div>
+                        <h3>Lighting Installation</h3>
+                        <p>Indoor, outdoor, LED, and smart lighting solutions for every need.</p>
+                        <a href="#" onclick="sendWhatsApp('lighting')" class="whatsapp-btn">💬 Get Quote via WhatsApp</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3>Electrical Repairs</h3>
+                        <p>Fast troubleshooting and repairs for faulty sockets and electrical systems.</p>
+                        <a href="#" onclick="sendWhatsApp('repairs')" class="whatsapp-btn">💬 Get Quote via WhatsApp</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <h3>Commercial Services</h3>
+                        <p>Reliable wiring and maintenance for offices, shops, and industrial sites.</p>
+                        <a href="#" onclick="sendWhatsApp('commercial')" class="whatsapp-btn">💬 Get Quote via WhatsApp</a>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="services.html" class="btn btn-secondary">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-choose">
+            <div class="container">
+                <h2 class="section-title">Why Choose Us?</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <h3>Licensed & Insured</h3>
+                        <p>Fully qualified electricians you can trust</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Response</h3>
+                        <p>Quick service when you need it most</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💰</div>
+                        <h3>Affordable Pricing</h3>
+                        <p>No hidden fees, transparent pricing</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🏆</div>
+                        <h3>100% Satisfaction</h3>
+                        <p>Customer satisfaction guarantee</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section" id="quote-form">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Don't wait for electrical problems to get worse. Contact us today for professional service you can trust.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" onclick="sendWhatsApp('general')" class="btn btn-primary">💬 WhatsApp Us Now</a>
+                    <a href="tel:0747690232" class="btn btn-secondary">📞 Call - 074 769 0232</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" onclick="sendWhatsApp('general')" class="whatsapp-float">
+        💬 <span>Chat with us</span>
+    </a>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📞 074 769 0232</p>
+                    <p>📍 Mdantsane, East London</p>
+                    <p>🕒 24/7 Emergency Service</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <a href="services.html">House Rewiring</a>
+                    <a href="services.html">Lighting Installation</a>
+                    <a href="services.html">Electrical Repairs</a>
+                    <a href="services.html">Safety Inspections</a>
+                </div>
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Local, trusted electrical contractor serving East London area. Licensed, insured, and committed to quality work.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nombabazane Electrical and Construction. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'white';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // WhatsApp integration function
+        function sendWhatsApp(serviceType) {
+            const phoneNumber = '27747690232'; // Replace with your WhatsApp number (country code + number)
+            let message = '';
+
+            switch(serviceType) {
+                case 'rewiring':
+                    message = 'Hi! I need a quote for house rewiring services. Please provide more details about:\n\n• Complete electrical system upgrade\n• Code-compliant installation\n• Safety inspection\n• Timeline and cost estimate\n\nThank you!';
+                    break;
+                case 'lighting':
+                    message = 'Hi! I need a quote for lighting installation. I\'m interested in:\n\n• LED/Smart lighting systems\n• Indoor/Outdoor lighting\n• Energy-efficient designs\n• Custom lighting plans\n\nPlease contact me with more details!';
+                    break;
+                case 'repairs':
+                    message = 'Hi! I need urgent electrical repairs. My issue involves:\n\n• [Please describe your electrical problem]\n• Location: [Your area]\n• Urgency level: [Emergency/Same day/This week]\n\nPlease respond as soon as possible. Thank you!';
+                    break;
+                case 'commercial':
+                    message = 'Hi! I need commercial electrical services for:\n\n• Business type: [Office/Retail/Industrial]\n• Service needed: [New installation/Maintenance/Repairs]\n• Location: [Your business address]\n• Timeline: [When do you need this completed]\n\nPlease provide a quote. Thank you!';
+                    break;
+                default:
+                    message = 'Hi! I\'m interested in your electrical services. Please provide information about:\n\n• Available services\n• Pricing\n• Scheduling\n• Service area coverage\n\nI\'m located in [Your Area]. Thank you!';
+            }
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
