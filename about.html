@@ -20,12 +20,12 @@
         }
 
         .container {
-            max-width: 1400px; /* Match other pages */
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 30px; /* Match other pages */
+            padding: 0 30px;
         }
 
-        /* Header - Enhanced Width */
+        /* Header - Consistent with index.html and services.html */
         header {
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -33,7 +33,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 0 20px; /* Added padding to header itself */
+            padding: 0 20px;
         }
 
         nav {
@@ -41,20 +41,26 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
-            max-width: 1400px; /* Match container width */
+            max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: #333;
+            flex-shrink: 0;
         }
 
+        /* Desktop Navigation - Centered */
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .nav-links a {
@@ -62,6 +68,7 @@
             color: #333;
             font-weight: 500;
             transition: color 0.3s;
+            white-space: nowrap;
         }
 
         .nav-links a:hover,
@@ -77,10 +84,22 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background 0.3s;
+            flex-shrink: 0;
         }
 
         .cta-phone:hover {
             background: #555;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            color: #333;
         }
 
         /* Page Header with Background Image */
@@ -406,15 +425,6 @@
             color: #ccc;
         }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
         /* WhatsApp Floating Button */
         .whatsapp-float {
             position: fixed;
@@ -453,26 +463,67 @@
             }
         }
 
-        /* Responsive */
+        /* Responsive - Mobile */
+        @media (max-width: 1024px) {
+            /* Adjust navigation for tablets */
+            .nav-links {
+                position: static;
+                transform: none;
+                gap: 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            /* Show mobile menu button */
             .mobile-menu-btn {
                 display: block;
             }
 
+            /* Hide desktop navigation */
             .nav-links {
                 display: none;
                 position: absolute;
                 top: 100%;
-                left: 0;
-                width: 100%;
+                left: 20px;
+                right: 20px;
                 background: white;
                 flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                border-radius: 8px;
+                border: 1px solid #eee;
+                gap: 0;
+                transform: none;
             }
 
             .nav-links.active {
                 display: flex;
+            }
+
+            .nav-links li {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.5rem 0;
+                color: #333;
+                font-weight: 500;
+            }
+
+            .nav-links a:hover {
+                color: #25D366;
+                background: #f8f9fa;
+            }
+
+            /* Hide CTA phone on mobile to save space */
+            .cta-phone {
+                display: none;
             }
 
             .page-header h1 {
@@ -509,6 +560,13 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .nav-links {
+                left: 10px;
+                right: 10px;
+            }
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -525,6 +583,26 @@
         .feature-card {
             animation: fadeInUp 0.6s ease-out;
         }
+
+        /* Mobile menu animation */
+        .nav-links {
+            transition: all 0.3s ease;
+        }
+
+        .nav-links.active {
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -536,7 +614,7 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="about.html" class="active">About</a></li>
             </ul>
-            <!--<a href="tel:0747690232" class="cta-phone">📞 074 769 0232</a>-->
+            <a href="tel:0747690232" class="cta-phone">📞 074 769 0232</a>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         </nav>
     </header>
@@ -731,7 +809,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Nombabazane Electrical and Construction. All rights reserved.</p>
+                <p>&copy; 2025 Nombabazane Electrical and Construction. MathLabWebDesign.</p>
             </div>
         </div>
     </footer>
@@ -752,6 +830,14 @@
             }
         });
 
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.remove('active');
+            });
+        });
+
         // Add scroll effect to header
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
@@ -766,7 +852,7 @@
 
         // WhatsApp integration function
         function sendWhatsApp(serviceType) {
-            const phoneNumber = '27747690232'; // Replace with your WhatsApp number
+            const phoneNumber = '27747690232';
             let message = '';
 
             if (serviceType === 'contact-form') {
@@ -819,11 +905,6 @@
         }
 
         // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {

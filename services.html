@@ -20,12 +20,12 @@
         }
 
         .container {
-            max-width: 1400px; /* Increased from 1200px */
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 30px; /* Increased padding */
+            padding: 0 30px;
         }
 
-        /* Header - Enhanced Width */
+        /* Header - Improved Layout */
         header {
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -33,7 +33,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 0 20px; /* Added padding to header itself */
+            padding: 0 20px;
         }
 
         nav {
@@ -41,20 +41,26 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
-            max-width: 1400px; /* Match container width */
+            max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: #333;
+            flex-shrink: 0;
         }
 
+        /* Desktop Navigation - Centered */
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .nav-links a {
@@ -62,6 +68,7 @@
             color: #333;
             font-weight: 500;
             transition: color 0.3s;
+            white-space: nowrap;
         }
 
         .nav-links a:hover,
@@ -77,10 +84,22 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background 0.3s;
+            flex-shrink: 0;
         }
 
         .cta-phone:hover {
             background: #555;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            color: #333;
         }
 
         /* Page Header with Background Image */
@@ -304,6 +323,13 @@
             background: #555;
         }
 
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
         /* Footer */
         footer {
             background: #222;
@@ -340,15 +366,6 @@
             padding-top: 2rem;
             border-top: 1px solid #444;
             color: #ccc;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
         }
 
         /* WhatsApp Floating Button */
@@ -389,26 +406,67 @@
             }
         }
 
-        /* Responsive */
+        /* Responsive - Mobile */
+        @media (max-width: 1024px) {
+            /* Adjust navigation for tablets */
+            .nav-links {
+                position: static;
+                transform: none;
+                gap: 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            /* Show mobile menu button */
             .mobile-menu-btn {
                 display: block;
             }
 
+            /* Hide desktop navigation */
             .nav-links {
                 display: none;
                 position: absolute;
                 top: 100%;
-                left: 0;
-                width: 100%;
+                left: 20px;
+                right: 20px;
                 background: white;
                 flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                border-radius: 8px;
+                border: 1px solid #eee;
+                gap: 0;
+                transform: none;
             }
 
             .nav-links.active {
                 display: flex;
+            }
+
+            .nav-links li {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.5rem 0;
+                color: #333;
+                font-weight: 500;
+            }
+
+            .nav-links a:hover {
+                color: #25D366;
+                background: #f8f9fa;
+            }
+
+            /* Hide CTA phone on mobile to save space */
+            .cta-phone {
+                display: none;
             }
 
             .page-header h1 {
@@ -435,6 +493,13 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .nav-links {
+                left: 10px;
+                right: 10px;
+            }
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -454,6 +519,26 @@
         .service-card:nth-child(even) {
             animation-delay: 0.2s;
         }
+
+        /* Mobile menu animation */
+        .nav-links {
+            transition: all 0.3s ease;
+        }
+
+        .nav-links.active {
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -465,7 +550,7 @@
                 <li><a href="services.html" class="active">Services</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
-            <!--<a href="tel:0747690232" class="cta-phone">📞 074 769 0232</a>-->
+            <a href="tel:0747690232" class="cta-phone">074 769 0232</a>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         </nav>
     </header>
@@ -482,6 +567,7 @@
         <!-- Services Section -->
         <section class="services-section">
             <div class="container">
+                <h2 class="section-title">Complete Electrical Services</h2>
                 <div class="services-grid">
                     <!-- House Rewiring -->
                     <div class="service-card">
@@ -494,7 +580,7 @@
                             <li>Safety inspection included</li>
                             <li>Minimal disruption to your home</li>
                         </ul>
-                        <a href="#" onclick="sendWhatsApp('rewiring')" class="whatsapp-btn">💬 Get Quote via WhatsApp</a>
+                        <a href="#" onclick="sendWhatsApp('rewiring')" class="whatsapp-btn">Get Quote via WhatsApp</a>
                     </div>
 
                     <!-- Lighting Installation -->
@@ -508,7 +594,7 @@
                             <li>Energy-efficient designs</li>
                             <li>Custom lighting plans</li>
                         </ul>
-                        <a href="#" onclick="sendWhatsApp('lighting')" class="whatsapp-btn">💬 Get Quote via WhatsApp</a>
+                        <a href="#" onclick="sendWhatsApp('lighting')" class="whatsapp-btn">Get Quote via WhatsApp</a>
                     </div>
 
                     <!-- Electrical Repairs -->
@@ -522,7 +608,7 @@
                             <li>Quality parts and materials</li>
                             <li>Same-day service available</li>
                         </ul>
-                        <a href="#" onclick="sendWhatsApp('emergency')" class="whatsapp-btn">💬 Emergency WhatsApp</a>
+                        <a href="#" onclick="sendWhatsApp('emergency')" class="whatsapp-btn">Emergency WhatsApp</a>
                     </div>
 
                     <!-- New Installations -->
@@ -536,7 +622,7 @@
                             <li>Appliance installations</li>
                             <li>Code compliance guaranteed</li>
                         </ul>
-                        <a href="#" onclick="sendWhatsApp('installation')" class="whatsapp-btn">💬 Get Quote via WhatsApp</a>
+                        <a href="#" onclick="sendWhatsApp('installation')" class="whatsapp-btn">Get Quote via WhatsApp</a>
                     </div>
 
                     <!-- Fuse Board Upgrades -->
@@ -550,7 +636,7 @@
                             <li>Enhanced safety features</li>
                             <li>Professional certification</li>
                         </ul>
-                        <a href="#" onclick="sendWhatsApp('fuseboard')" class="whatsapp-btn">💬 Get Quote via WhatsApp</a>
+                        <a href="#" onclick="sendWhatsApp('fuseboard')" class="whatsapp-btn">Get Quote via WhatsApp</a>
                     </div>
 
                     <!-- Commercial Services -->
@@ -564,7 +650,7 @@
                             <li>Maintenance contracts available</li>
                             <li>Emergency commercial service</li>
                         </ul>
-                        <a href="#" onclick="sendWhatsApp('commercial')" class="whatsapp-btn">💬 Get Quote via WhatsApp</a>
+                        <a href="#" onclick="sendWhatsApp('commercial')" class="whatsapp-btn">Get Quote via WhatsApp</a>
                     </div>
 
                     <!-- Safety Inspections -->
@@ -578,7 +664,7 @@
                             <li>Preventive maintenance plans</li>
                             <li>Insurance requirement compliance</li>
                         </ul>
-                        <a href="#" onclick="sendWhatsApp('inspection')" class="whatsapp-btn">💬 Book via WhatsApp</a>
+                        <a href="#" onclick="sendWhatsApp('inspection')" class="whatsapp-btn">Book via WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -589,7 +675,7 @@
             <div class="container">
                 <h2>24/7 Emergency Service</h2>
                 <p>Electrical emergencies don't wait for business hours. We're available around the clock for urgent repairs.</p>
-                <a href="#" onclick="sendWhatsApp('emergency')" class="btn btn-primary">🚨 Emergency WhatsApp - Available 24/7</a>
+                <a href="#" onclick="sendWhatsApp('emergency')" class="btn btn-primary">Emergency WhatsApp - Available 24/7</a>
             </div>
         </section>
 
@@ -599,8 +685,8 @@
                 <h2>Ready to Get Started?</h2>
                 <p>Contact us today for a free quote on any of our electrical services. Fast response, professional service, guaranteed satisfaction.</p>
                 <div class="quote-buttons">
-                    <a href="#" onclick="sendWhatsApp('general')" class="btn btn-secondary">💬 WhatsApp for Free Quote</a>
-                    <a href="tel:0747690232" class="btn btn-tertiary">📞 Call Now</a>
+                    <a href="#" onclick="sendWhatsApp('general')" class="btn btn-secondary">WhatsApp for Free Quote</a>
+                    <a href="tel:0747690232" class="btn btn-tertiary">Call Now</a>
                 </div>
             </div>
         </section>
@@ -616,9 +702,9 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p>📞 074 769 0232</p>
-                    <p>📍 Mdantsane, East London</p>
-                    <p>🕒 24/7 Emergency Service</p>
+                    <p>074 769 0232</p>
+                    <p>Mdantsane, East London</p>
+                    <p>24/7 Emergency Service</p>
                 </div>
                 <div class="footer-section">
                     <h3>Our Services</h3>
@@ -636,7 +722,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Nombabazane Electrical and Construction. All rights reserved.</p>
+                <p>&copy; 2025 Nombabazane Electrical and Construction. MathLabWebDesign.</p>
             </div>
         </div>
     </footer>
@@ -655,6 +741,14 @@
             if (!nav.contains(event.target)) {
                 navLinks.classList.remove('active');
             }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.remove('active');
+            });
         });
 
         // Add scroll effect to header
@@ -694,7 +788,7 @@
 
         // WhatsApp integration function
         function sendWhatsApp(serviceType) {
-            const phoneNumber = '27747690232'; // Replace with your WhatsApp number
+            const phoneNumber = '27747690232';
             let message = '';
 
             switch(serviceType) {
@@ -705,7 +799,7 @@
                     message = 'Hi! I need a quote for lighting installation. Details:\n\n• Type of lighting needed: [LED/Smart/Outdoor/Indoor]\n• Number of rooms/areas: [Specify]\n• Any specific lighting requirements?\n• Property type: [Residential/Commercial]\n• Location: [Your address/area]\n\nPlease provide pricing and timeline. Thank you!';
                     break;
                 case 'emergency':
-                    message = '🚨 URGENT: I have an electrical emergency!\n\nProblem: [Please describe the issue]\nLocation: [Your address]\nSafety concern level: [High/Medium]\nBest contact number: [Your number]\n\nPlease respond immediately. Thank you!';
+                    message = 'URGENT: I have an electrical emergency!\n\nProblem: [Please describe the issue]\nLocation: [Your address]\nSafety concern level: [High/Medium]\nBest contact number: [Your number]\n\nPlease respond immediately. Thank you!';
                     break;
                 case 'installation':
                     message = 'Hi! I need new electrical installation services:\n\n• Type of installation: [New build/Extension/Appliance]\n• Project scope: [Describe what you need]\n• Property details: [Size/type]\n• Timeline required: [When needed]\n• Location: [Your address/area]\n\nPlease provide a detailed quote. Thank you!';
@@ -726,7 +820,6 @@
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
             
-            // Open WhatsApp
             window.open(whatsappUrl, '_blank');
         }
     </script>
